@@ -10,7 +10,7 @@ TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
 SOURCE_DIR="/home/vagrant"
 
 # Create the backup file
-tar -czvf "${BACKUP_DIR}/user_backup_${TIMESTAMP}.tar.gz" "${SOURCE_DIR}"
+tar -czvf "${BACKUP_DIR}/user_backup_${TIMESTAMP}.tar.gz" --exclude='*.dat' "${SOURCE_DIR}"
 
 # Optional: Remove backups older than X days (e.g., keep 7 days)
 find "${BACKUP_DIR}" -type f -mtime +7 -delete
